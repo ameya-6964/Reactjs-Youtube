@@ -1,8 +1,11 @@
 import React from "react";
 
-const Button = ({ name, color }) => {
+const Button = ({ name, color, onButtonClick }) => {
   return (
     <button
+      onClick={() => {
+        onButtonClick(color);
+      }}
       type="button"
       className={`rounded-full ${color} px-5 py-2 text-sm font-semibold ${
         name === "White"
