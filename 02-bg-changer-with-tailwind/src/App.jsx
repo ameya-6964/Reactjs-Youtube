@@ -16,13 +16,14 @@ const colors = [
 ];
 
 function App() {
-  const [bg, setBg] = useState("bg-slate-50");
+  const [background, setBackground] = useState("bg-slate-50");
+
   function setBackgroundColor(color) {
-    setBg(color);
+    setBackground(color);
   }
   return (
     <>
-      <div className={`${bg} h-full`}>
+      <div className={`${background} h-full`}>
         <div className="flex flex-col items-center justify-end h-screen">
           <div className=" bg-slate-50 w-auto p-2 mb-3 rounded-3xl">
             <Buttons colorObj={colors} onButtonClick={setBackgroundColor} />
