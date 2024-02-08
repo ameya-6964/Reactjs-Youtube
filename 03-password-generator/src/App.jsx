@@ -4,7 +4,6 @@ import "./index.css";
 
 function App() {
   const [password, setPassword] = useState("");
-  const [copied, setCopied] = useState(false);
   const [length, setLength] = useState(8);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [characterAllowed, setCharacterAllowed] = useState(false);
@@ -15,7 +14,6 @@ function App() {
     passwordRef.current?.select();
     passwordRef.current?.setSelectionRange(0, 999);
     window.navigator.clipboard.writeText(password);
-    setCopied(true);
   }, [password]);
 
   const passwordGenerator = useCallback(() => {
@@ -54,7 +52,6 @@ function App() {
           setNumberAllowed={setNumberAllowed}
           copyPasswordToClipboard={copyPasswordToClipboard}
           passwordRef={passwordRef}
-          copied={copied}
         />
       </div>
     </>
