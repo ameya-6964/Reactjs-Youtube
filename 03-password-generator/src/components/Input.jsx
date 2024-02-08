@@ -6,17 +6,24 @@ const Input = ({
   setLength,
   setCharacterAllowed,
   setNumberAllowed,
+  copyPasswordToClipboard,
+  passwordRef,
 }) => {
   return (
     <>
       <div className=" mt-5 h-[50px] flex justify-center items-center">
         <input
           type="text"
-          className="w-[450px] h-[35px] rounded-l-md text-black text-lg"
+          className="w-[450px] h-[35px] rounded-l-md text-orange-600 text-2xl 
+          font-bold"
           value={password}
           readOnly
+          ref={passwordRef}
         />
-        <button className="text-white h-[35px] bg-blue-600 text-center w-auto pt-0 pb-0 pl-3 pr-4 rounded-r-md">
+        <button
+          className="text-white h-[35px] bg-blue-600 text-center w-auto pt-0 pb-0 pl-3 pr-4 rounded-r-md"
+          onClick={() => copyPasswordToClipboard()}
+        >
           Copy
         </button>
       </div>

@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Input from "./components/Input";
 import "./index.css";
 
@@ -7,6 +7,14 @@ function App() {
   const [length, setLength] = useState(8);
   const [numberAllowed, setNumberAllowed] = useState(false);
   const [characterAllowed, setCharacterAllowed] = useState(false);
+  //useRef hook
+  const passwordRef = useRef(null);
+
+  const copyPasswordToClipboard = useCallback(() => {
+    passwordRef.current?.select();
+    passwordRef.current?.setSelectionRange(0, 999);
+    window.navigator.clipboard.writeText(password);
+  }, [password]);
 
   const passwordGenerator = useCallback(() => {
     let pass = "";
@@ -33,7 +41,7 @@ function App() {
       <h1 className="text-center mt-5 text-5xl font-bold text-white">
         Password Generator
       </h1>
-      <div className="w-[800px] h-[200px] flex flex-col justify-center items-center mt-[40px] bg-gray-800 ">
+      <div className="w-[800px] h-[200px] flex flex-col justify-center items-center mt-[40px] bg-gray-800 rounded-3xl">
         <Input
           password={password}
           length={length}
@@ -42,6 +50,8 @@ function App() {
           setLength={setLength}
           setCharacterAllowed={setCharacterAllowed}
           setNumberAllowed={setNumberAllowed}
+          copyPasswordToClipboard={copyPasswordToClipboard}
+          passwordRef={passwordRef}
         />
       </div>
     </>
