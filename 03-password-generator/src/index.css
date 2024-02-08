@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,4 +12,8 @@ body {
 body {
   display: flex;
   justify-content: center;
+}
+
+h1 {
+  font-family: "Bungee Spice", sans-serif;
 }
